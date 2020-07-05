@@ -18,12 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.16]
+        node-version: [12.x]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
     - name: Cache node modules
       uses: actions/cache@v1
       with:
@@ -31,7 +31,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-            
+
     - name: Node ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -41,4 +41,4 @@ jobs:
     - name: npm ci and npm run build
       run: |
         npm ci
-        npm run build:ci
+        npm run build:ci:prod
