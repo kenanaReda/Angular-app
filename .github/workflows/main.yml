@@ -41,7 +41,7 @@ jobs:
     - name: npm ci and npm run build
       run: |
         npm ci
-        npm run build:ci:prod
+        npm run build:ci
 
     - name: Archive production artifacts
       if: success()

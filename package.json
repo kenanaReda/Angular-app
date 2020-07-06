@@ -4,14 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:staging": "ng build --c=staging --build-optimizer --progress=false",
-    "build:prod": "ng build --prod --build-optimizer --progress=false",
+    "build": "ng build --prod --build-optimizer --progress=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "clean": "rimraf ./dist",
-    "build:ci:staging": "npm run clean && npm run build:staging",
-    "build:ci:prod": "npm run clean && npm run build:prod"
+    "build:ci": "npm run clean && npm run build"
   },
   "private": true,
   "dependencies": {
