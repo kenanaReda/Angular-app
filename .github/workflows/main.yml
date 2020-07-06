@@ -50,20 +50,14 @@ jobs:
         name: dist
         path: dist
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist/Angular-app # must be changed to dist/Shaufel-go
-
     - name: List output files
       run: ls
 
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@master
       with:
-        # deploy to a folder named "go-beta" on Shaufel server MUST change ftp user, port and make sure that host is correct
+        # deploy to a folder named "go-beta" on Shaufel server, ftp port MUST be changed and make sure that host is correct
+        # ftp user, password MUST be changed
         ftp-server: sftp://ftp.shaufelonline.de:7822/home/htdocs/go-beta # must be changed to go-prod
         ftp-username: ${{ secrets.sftp_username }}
         ftp-password: ${{ secrets.sftp_password }}
