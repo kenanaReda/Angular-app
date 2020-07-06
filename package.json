@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:staging": "ng build --c=staging",
-    "build:prod": "ng build --prod",
+    "build:staging": "ng build --c=staging --build-optimizer --progress=false",
+    "build:prod": "ng build --prod --build-optimizer --progress=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
